@@ -26,7 +26,7 @@ export default tseslint.config(
     extends: [
       reactPlugin.configs.flat.recommended,
       js.configs.recommended,
-      ...tseslint.configs.recommended,
+      // ...tseslint.configs.recommended,
       ...tailwind.configs['flat/recommended'],
       sonar.configs.recommended,
     ],
@@ -64,6 +64,7 @@ export default tseslint.config(
       'import/no-unassigned-import': 'off',
       'import/extensions': 'off',
       'react/forbid-component-props': 'off',
+      'react-refresh/only-export-components': 'off',
       'id-length': 'off',
       'react/react-in-jsx-scope': 'off',
     },

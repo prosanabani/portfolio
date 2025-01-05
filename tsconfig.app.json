@@ -7,7 +7,7 @@
       "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "types": ["vite/client"],
 
@@ -36,6 +36,13 @@
     "noEmit": true,
     "declaration": true // if you are building for a library
   },
-  "include": ["src", "unimported.d.ts", ".react-router/types/**/*"],
-  "exclude": ["build", ".react-router"]
+  "include": [
+    "src",
+    "unimported.d.ts"
+    //  ".react-router/types/**/*"
+  ],
+  "exclude": [
+    "build"
+    //  ".react-router"
+  ]
 }
