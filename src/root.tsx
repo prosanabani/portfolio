@@ -1,5 +1,5 @@
 import 'virtual:uno.css'
-import '@unocss/reset/tailwind.css'
+import { type APIOptions, PrimeReactProvider } from 'primereact/api'
 import {
   isRouteErrorResponse,
   Links,
@@ -72,6 +72,10 @@ export function links() {
       href: '/vite.svg',
       rel: 'icon',
     },
+    {
+      href: '/themes/lara-light-blue/theme.css',
+      rel: 'stylesheet',
+    },
   ]
 }
 
@@ -89,6 +93,15 @@ export function meta() {
   ]
 }
 
+const value: Partial<APIOptions> = {
+  appendTo: 'self',
+  ripple: true,
+}
+
 export default function Root() {
-  return <Outlet />
+  return (
+    <PrimeReactProvider value={value}>
+      <Outlet />
+    </PrimeReactProvider>
+  )
 }
