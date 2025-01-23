@@ -7,8 +7,8 @@ import parser from '@typescript-eslint/parser'
 import auto from 'eslint-config-canonical/configurations/auto.js'
 import sonar from 'eslint-plugin-sonarjs'
 import tailwind from 'eslint-plugin-tailwindcss'
-
 import reactPlugin from 'eslint-plugin-react'
+
 export default tseslint.config(
   ...auto,
   {

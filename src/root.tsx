@@ -1,6 +1,14 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useRouteError,
+} from 'react-router'
 
 export const Layout = ({
   children,
@@ -26,6 +34,59 @@ export const Layout = ({
       </body>
     </html>
   )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <div>
+        <h1>
+          {error.status} {error.statusText}
+        </h1>
+        <p>{error.data}</p>
+      </div>
+    )
+  } else if (error instanceof Error) {
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>{error.message}</p>
+        <p>The stack trace is:</p>
+        <pre>{error.stack}</pre>
+      </div>
+    )
+  } else {
+    return <h1>Unknown Error</h1>
+  }
+}
+
+export function HydrateFallback() {
+  return <p>Loading Template...</p>
+}
+
+export function links() {
+  return [
+    {
+      href: '/vite.svg',
+      rel: 'icon',
+    },
+  ]
+}
+
+export function meta() {
+  return [
+    { title: 'Template' },
+    // {
+    //   content: 'Very cool app',
+    //   property: 'og:title',
+    // },
+    // {
+    //   content: 'This app is the best',
+    //   name: 'description',
+    // },
+  ]
 }
 
 export default function Root() {
