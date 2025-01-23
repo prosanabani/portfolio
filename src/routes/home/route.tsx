@@ -5,5 +5,5 @@
 // }
 
 export default function Component() {
-  return null
+  return <div className="">home</div>
 }
