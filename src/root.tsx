@@ -1,4 +1,6 @@
 import 'virtual:uno.css'
+import { i18n } from '@lingui/core'
+import { I18nProvider } from '@lingui/react'
 import { type APIOptions, PrimeReactProvider } from 'primereact/api'
 import {
   isRouteErrorResponse,
@@ -100,8 +102,10 @@ const value: Partial<APIOptions> = {
 
 export default function Root() {
   return (
-    <PrimeReactProvider value={value}>
-      <Outlet />
-    </PrimeReactProvider>
+    <I18nProvider i18n={i18n}>
+      <PrimeReactProvider value={value}>
+        <Outlet />
+      </PrimeReactProvider>
+    </I18nProvider>
   )
 }

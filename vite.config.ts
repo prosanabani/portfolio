@@ -4,6 +4,8 @@ import UnoCSS from 'unocss/vite'
 import path from 'path'
 import Unimport from 'unimport/unplugin'
 import babel from 'vite-plugin-babel'
+import macrosPlugin from 'vite-plugin-babel-macros'
+import { lingui } from '@lingui/vite-plugin'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -19,6 +21,8 @@ export default defineConfig({
     },
   },
   plugins: [
+    macrosPlugin(),
+    lingui(),
     babel({
       filter: /\.tsx?$/,
       babelConfig: {
@@ -36,6 +40,7 @@ export default defineConfig({
         './src/middlewares/**',
         './src/stores/**',
         './src/queries/**',
+        './src/config/**',
       ],
       dts: true,
     }),
