@@ -24,5 +24,6 @@ dist-ssr
 *.sw?
 
 
+unimport.d.ts
 .react-router
 build

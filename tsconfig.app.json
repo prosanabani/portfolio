@@ -36,11 +36,7 @@
     "noEmit": true,
     "declaration": true // if you are building for a library
   },
-  "include": [
-    "src",
-    "unimported.d.ts"
-    //  ".react-router/types/**/*"
-  ],
+  "include": ["src", "unimport.d.ts"],
   "exclude": [
     "build"
     //  ".react-router"
