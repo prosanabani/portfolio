@@ -3,6 +3,7 @@ import { reactRouter } from '@react-router/dev/vite'
 import UnoCSS from 'unocss/vite'
 import path from 'path'
 import Unimport from 'unimport/unplugin'
+import babel from 'vite-plugin-babel'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,7 +13,19 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  build: {
+    rollupOptions: {
+      external: [],
+    },
+  },
   plugins: [
+    babel({
+      filter: /\.tsx?$/,
+      babelConfig: {
+        presets: ['@babel/preset-typescript'],
+        plugins: ['babel-plugin-react-compiler'],
+      },
+    }),
     reactRouter(),
     UnoCSS(),
     Unimport.vite({
