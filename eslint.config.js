@@ -53,6 +53,7 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
 
+      'tailwindcss/no-custom-classname': 'off',
       'no-undef': 'off',
       'prettier/prettier': 'off',
       'canonical/filename-match-exported': 'off',
